@@ -1,9 +1,9 @@
 
-# Qt Building Blocks
+# Bloques de construcción Qt
 
-Qt 6 consists of a large number of modules. In general, a module is a library for the developer to use. Some modules are mandatory for a Qt-enabled platform and form the set called *Qt Essentials Modules*. Other modules are optional, and form the *Qt Add-On Modules*. The majority of developers may not need to use the latter, but it’s good to know about them as they provide invaluable solutions to common challenges.
+Qt 6 consta de una gran cantidad de módulos. En general, un módulo es una biblioteca para que la use el desarrollador. Algunos módulos son obligatorios para una plataforma habilitada para Qt y forman el conjunto llamado *Qt Essentials Modules* (Modulos esenciales). Otros módulos son opcionales, y forman los *Qt Add-On Modules*. Es posible que la mayoría de los desarrolladores no necesiten usar estos últimos, pero es bueno conocerlos, ya que brindan soluciones invaluables para desafíos comunes.
 
-## Qt Modules
+## Moduloes Qt
 
 The Qt Essentials modules are mandatory for any Qt-enabled platform. They offer the foundation to develop modern Qt 6 Applications using Qt Quick 2. The full list of modules is available in the [Qt documentation module list](https://doc.qt.io/qt-6/qtmodules.html#qt-essentials).
 
