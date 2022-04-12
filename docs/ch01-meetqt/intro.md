@@ -1,26 +1,27 @@
-# Qt 6 Introduction
+# Qt 6 Introduccíon
 
 ## Qt Quick
 
-Qt Quick is the umbrella term for the user interface technology used in Qt 6. It was introduced in Qt 5 and now expanded for Qt 6. Qt Quick itself is a collection of several technologies:
+Qt Quick es el término general para la tecnología de interfaz de usuario utilizada en Qt 6. Se introdujo en Qt 5 y ahora se expandió para Qt 6. Qt Quick en sí mismo es una colección de varias tecnologías:
 
-* QML - Markup language for user interfaces
-* JavaScript - The dynamic scripting language
-* Qt C++ - The highly portable enhanced c++ library
+* QML - Lenguaje de marcado para interfaces de usuario
+* JavaScript: el lenguaje de secuencias de comandos dinámico
+* Qt C++: la biblioteca C++ mejorada altamente portátil
 
 ![](./assets/qt6_overview.png)
 
-Similar to HTML, QML is a markup language. It is composed of tags, called types in Qt Quick, that are enclosed in curly brackets: `Item {}`. It was designed from the ground up for the creation of user interfaces, speed and easier reading for developers. The user interface can be enhanced further using JavaScript code. Qt Quick is easily extendable with your own native functionality using Qt C++. In short, the declarative UI is called the front-end and the native parts are called the back-end. This allows you to separate the computing intensive and native operation of your application from the user interface part.
+Similar a HTML, QML es un lenguaje de marcas. Se compone de etiquetas, denominadas tipos en Qt Quick, que están encerradas entre corchetes: `Item {}`. Fue diseñado desde cero para la creación de interfaces de usuario, velocidad y lectura más fácil para los desarrolladores. La interfaz de usuario se puede mejorar aún más utilizando código JavaScript. Qt Quick se puede ampliar fácilmente con su propia funcionalidad nativa utilizando Qt C++. En resumen, la interfaz de usuario declarativa se denomina front-end y las partes nativas se denominan back-end. Esto le permite separar la operación nativa y intensiva en computación de su aplicación de la parte de la interfaz de usuario.
 
-In a typical project, the front-end is developed in QML/JavaScript. The back-end code, which interfaces with the system and does the heavy lifting, is developed using Qt C++. This allows a natural split between the more design-oriented developers and the functional developers. Typically, the back-end is tested using Qt Test, the Qt unit testing framework, and exported for the front-end developers to use.
+En un proyecto típico, el front-end se desarrolla en QML/JavaScript. El código de back-end, que interactúa con el sistema y hace el trabajo pesado, se desarrolla utilizando Qt C++. Esto permite una división natural entre los más orientados al diseño Por lo general, el back-end se prueba con Qt Test, el marco de prueba de unidades de Qt, y se exporta para que lo usen los desarrolladores de front-end.
 
-## Digesting a User Interface
+## Digerir una interfaz de usuario
 
-Let’s create a simple user interface using Qt Quick, which showcases some aspects of the QML language. In the end, we will have a paper windmill with rotating blades.
+Vamos a crear una interfaz de usuario simple usando Qt Quick, que muestra algunos aspectos del lenguaje QML. Al final, tendremos un molino de viento de papel con aspas giratorias.
 
 ![](./assets/showcase.png)
 
-We start with an empty document called `main.qml`. All our QML files will have the suffix `.qml`. As a markup language (like HTML), a QML document needs to have one and only one root type. In our case, this is the `Image` type with a width and height based on the background image geometry:
+Comenzamos con un documento vacío llamado `main.qml`. Todos nuestros archivos QML tendrán el sufijo `.qml`. Como lenguaje de marcado (como HTML), un documento QML debe tener un único tipo raíz. En nuestro caso, este es el tipo `Image` con un ancho y alto basado en la geometría de la imagen de fondo
+:
 
 ```qml
 import QtQuick
@@ -31,28 +32,28 @@ Image {
 }
 ```
 
-As QML doesn’t restrict the choice of type for the root type, we use an `Image` type with the source property set to our background image as the root.
+Como QML no restringe la elección del tipo para el tipo raíz, usamos un tipo `Imagen` con la propiedad de origen establecida en nuestra imagen de fondo como raíz.
 
 ![](./assets/background.png)
 
 ::: tip
-Each type has properties. For example, an image has the properties `width` and `height`, each holding a count of pixels. It also has other properties, such as `source`. Since the size of the image type is automatically derived from the image size, we don’t need to set the `width` and `height` properties ourselves.
+Cada tipo tiene propiedades. Por ejemplo, una imagen tiene las propiedades "ancho" y "alto", cada una con un recuento de píxeles. También tiene otras propiedades, como "fuente". Dado que el tamaño del tipo de imagen se deriva automáticamente del tamaño de la imagen, no necesitamos establecer las propiedades `width` y `height` nosotros mismos.
 :::
 
-The most standard types are located in the `QtQuick` module, which is made available by the import statement at the start of the `.qml` file.
+Los tipos más estándar se encuentran en el módulo `QtQuick`, que está disponible mediante la declaración de importación al comienzo del archivo `.qml`.
 
-The `id` is a special and optional property that contains an identifier that can be used to reference its associated type elsewhere in the document. Important: An `id` property cannot be changed after it has been set, and it cannot be set during runtime. Using `root` as the id for the root-type is a convention used in this book to make referencing the top-most type predictable in larger QML documents.
+El `id` es una propiedad especial y opcional que contiene un identificador que se puede usar para hacer referencia a su tipo asociado en cualquier otra parte del documento. El uso de `root` como id para el tipo raíz es una convención utilizada en este libro para hacer que la referencia al tipo más alto sea predecible en documentos QML más grandes.
 
-The foreground elements, representing the pole and the pinwheel in the user interface, are included as separate images.
+Los elementos de primer plano, que representan el poste y el molinete en la interfaz de usuario, se incluyen como imágenes separadas.
 
 
 ![](./assets/pole.png)
 
 ![](./assets/pinwheel.png)
 
-We want to place the pole horizontally in the center of the background, but offset vertically towards the bottom. And we want to place the pinwheel in the middle of the background.
+Queremos colocar el poste horizontalmente en el centro del fondo, pero desplazado verticalmente hacia el fondo, y queremos colocar el molinete en el medio del fondo.
 
-Although this beginners example only uses image types, as we progress you will create more sophisticated user interfaces that are composed of many different types.
+Aunque este ejemplo para principiantes solo usa tipos de imagen, a medida que avancemos, creará interfaces de usuario más sofisticadas que se componen de muchos tipos diferentes.
 
 ```qml
 Image {
@@ -74,21 +75,21 @@ Image {
 }
 ```
 
-To place the pinwheel in the middle, we use a complex property called `anchor`. Anchoring allows you to specify geometric relations between parent and sibling objects. For example, place me in the center of another type ( `anchors.centerIn: parent` ). There are left, right, top, bottom, centerIn, fill, verticalCenter and horizontalCenter relations on both ends. Naturally, when two or more anchors are used together, they should complement each other: it wouldn’t make sense, for instance, to anchor a type’s left side to the top of another type.
+Para colocar el molinete en el medio, usamos una propiedad compleja llamada `ancla`. El anclaje le permite especificar relaciones geométricas entre objetos padre y hermano. Por ejemplo, colóqueme en el centro de otro tipo ( `anchors.centerIn: parent` ). Hay relaciones izquierda, derecha, arriba, abajo, centerIn, fill, verticalCenter y horizontalCenter en ambos extremos. Naturalmente, cuando dos o más anclas se usan juntas, deberían complementarse entre sí: no tendría sentido, por ejemplo , para anclar el lado izquierdo de un tipo a la parte superior de otro tipo.
 
-For the pinwheel, the anchoring only requires one simple anchor.
+Para el molinete, el anclaje solo requiere un anclaje simple.
 
 ::: tip
-Sometimes you will want to make small adjustments, for example, to nudge a type slightly off-center. This can be done with `anchors.horizontalCenterOffset` or with `anchors.verticalCenterOffset`. Similar adjustment properties are also available for all the other anchors. Refer to the documentation for a full list of anchors properties.
+A veces querrás hacer pequeños ajustes, por ejemplo, para empujar un tipo ligeramente fuera del centro. Esto se puede hacer con `anchors.horizontalCenterOffset` o con `anchors.verticalCenterOffset`. Propiedades de ajuste similares también están disponibles para todos los demás anclas Consulte la documentación para obtener una lista completa de las propiedades de los anclajes.
 :::
 
 ::: tip    
-Placing an image as a child type of our root type (the `Image`) illustrates an important concept of a declarative language. You describe the visual appearance of the user interface in the order of layers and grouping, where the topmost layer (our background image) is drawn first and the child layers are drawn on top of it in the local coordinate system of the containing type.
+Colocar una imagen como un tipo secundario de nuestro tipo raíz (la `Imagen`) ilustra un concepto importante de un lenguaje declarativo. Describe la apariencia visual de la interfaz de usuario en el orden de las capas y la agrupación, donde la capa superior (nuestro fondo image) se dibuja primero y las capas secundarias se dibujan encima en el sistema de coordenadas local del tipo contenedor.
 :::
 
-To make the showcase a bit more interesting, let’s make the scene interactive. The idea is to rotate the wheel when the user presses the mouse somewhere in the scene.
+Para hacer que el escaparate sea un poco más interesante, hagamos que la escena sea interactiva. La idea es girar la rueda cuando el usuario presiona el mouse en algún lugar de la escena.
 
-We use the `MouseArea` type and make it cover the entire area of our root type.
+Usamos el tipo `MouseArea` y hacemos que cubra toda el área de nuestro tipo raíz.
 
 ```qml
 Image {
@@ -102,19 +103,19 @@ Image {
 }
 ```
 
-The mouse area emits signals when the user clicks inside the area it covers. You can connect to this signal by overriding the `onClicked` function. When a signal is connected, it means that the function (or functions) it corresponds to are called whenever the signal is emitted. In this case, we say that when there’s a mouse click in the mouse area, the type whose `id` is `wheel` (i.e., the pinwheel image) should rotate by +90 degrees.
+El área del mouse emite señales cuando el usuario hace clic dentro del área que cubre. Puede conectarse a esta señal anulando la función 'onClicked'. Cuando se conecta una señal, significa que la función (o funciones) a las que corresponde se llama cada vez que la señal es emitida En este caso, decimos que cuando hay un clic del mouse en el área del mouse, el tipo cuyo 'id' es 'rueda' (es decir, la imagen del molinete) debe girar +90 grados.
 
 ::: tip
-This technique works for every signal, with the naming convention being `on` + `SignalName` in title case. Also, all properties emit a signal when their value changes. For these signals, the naming convention is:
+Esta técnica funciona para todas las señales, con la convención de nomenclatura `on` + `SignalName` en caso de título. Además, todas las propiedades emiten una señal cuando cambia su valor. Para estas señales, la convención de nomenclatura es:
 :::
 
 ```js
     `on${property}Changed`
 ```
 
-For example, if a `width` property is changed, you can observe it with `onWidthChanged: print(width)`.
+Por ejemplo, si se cambia una propiedad `width`, puede observarla con `onWidthChanged: print(width)`.
 
-The wheel will now rotate whenever the user clicks, but the rotation takes place in one jump, rather than a fluid movement over time. We can achieve smooth movement using animation. An animation defines how a property change occurs over a period of time. To enable this, we use the `Animation` type’s property called `Behavior`. The `Behavior` specifies an animation for a defined property for every change applied to that property. In other words, whenever the property changes, the animation is run. This is only one of many ways of doing animation in QML.
+La rueda ahora girará cada vez que el usuario haga clic, pero la rotación se lleva a cabo en un salto, en lugar de un movimiento fluido a lo largo del tiempo. Podemos lograr un movimiento suave mediante la animación. Una animación define cómo se produce un cambio de propiedad durante un período de tiempo. Para habilita esto, usamos la propiedad del tipo `Animación` llamada `Behavior`. El `Behavior` especifica una animación para una propiedad definida para cada cambio aplicado a esa propiedad. En otras palabras, cada vez que la propiedad cambia, la animación se ejecuta. Esto es solo una de las muchas formas de hacer animación en QML.
 
 ```qml
 Image {
@@ -130,13 +131,13 @@ Image {
 }
 ```
 
-Now, whenever the wheel’s rotation property changes, it will be animated using a `NumberAnimation` with a duration of 250 ms. So each 90-degree turn will take 250 ms, producing a nice smooth turn.
+Ahora, cada vez que cambie la propiedad de rotación de la rueda, se animará mediante una "Animación numérica" ​​con una duración de 250 ms. Por lo tanto, cada giro de 90 grados tardará 250 ms, lo que producirá un giro suave y agradable.
 
 ![](./assets/scene2.png)
 
 ::: tip
-You will not actually see the wheel blurred. This is just to indicate the rotation. (A blurred wheel is in the assets folder, in case you’d like to experiment with it.)
+En realidad, no verá la rueda borrosa. Esto es solo para indicar la rotación. (Hay una rueda borrosa en la carpeta de activos, en caso de que desee experimentar con ella).
 :::
 
-Now the wheel looks much better and behaves nicely, as well as providing a very brief insight into the basics of how Qt Quick programming works.
+Ahora la rueda se ve mucho mejor y se comporta muy bien, además de proporcionar una visión muy breve de los conceptos básicos de cómo funciona la programación Qt Quick.
 

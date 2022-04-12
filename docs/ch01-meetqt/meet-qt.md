@@ -1,36 +1,37 @@
 # Qt and Qt Quick
 
-This book provides you with a walk through of the different aspects of application development using the new Qt 6. It focuses on the Qt Quick technology, but also provides necessary information about writing C++ back-ends and extension for Qt Quick.
+Este libro le brinda un recorrido por los diferentes aspectos del desarrollo de aplicaciones usando el nuevo Qt 6. Se enfoca en la tecnología Qt Quick, pero también brinda la información necesaria sobre cómo escribir back-ends C++ y la extensión para Qt Quick.
 
-This chapter shall provide a high-level overview of Qt 6. It shows the different application models available for developers, as well as a showcase application, as a sneak preview of things to come. Additionally, the chapter aims to provide a wide overview of the Qt content and how to get in touch with the makers of Qt the Qt Company.
-
+Este capítulo proporcionará una descripción general de alto nivel de Qt 6. Muestra los diferentes modelos de aplicaciones disponibles para los desarrolladores, así como una aplicación de exhibición, como un adelanto de lo que vendrá. el contenido de Qt y cómo ponerse en contacto con los creadores de Qt the Qt Company.
 
 ## Qt 6 Focus
 
-Qt 5 was released many years ago and introduced a new declarative way of writing stunning user interfaces. Since then a lot has changed in the world around us. The
+Qt 5 se lanzó hace muchos años e introdujo una nueva forma declarativa de escribir impresionantes interfaces de usuario. Desde entonces, muchas cosas han cambiado en el mundo que nos rodea. Qt 6 será una continuación de lo que se ha hecho con Qt 5 y no debería ser disruptivo para la mayoría de los usuarios ¿Qué hace que Qt sea valioso para los usuarios?
 
-Qt 6 will be a continuation of what has been done with Qt 5 and should not be disruptive to the majority of users. What make Qt valuable to the users?
+* Su naturaleza multiplataforma
+* Su escalabilidad
+* API y documentación de clase mundial
+* Mantenibilidad, estabilidad y compatibilidad
+* Un gran ecosistema de desarrolladores
 
-* Its cross-platform nature
-* Its scalability
-* World class APIs and documentation
-* Maintainability, stability and compatibility
-* A large developer ecosystem
+Qt 6 ajusta el producto Qt a nuevos mercados mientras se mantiene cerca de los valores de los usuarios.
 
-Qt 6 adjust the Qt product to new markets while keeping close to the users values.
+El mercado de escritorio es la raíz de la oferta de Qt. Es donde la mayoría de los usuarios obtienen el primer contacto con Qt y forma la base para las herramientas de Qt y su éxito.
 
-The desktop market is the root of Qts offering. It is where most users get the first contact with Qt and it forms the base for the Qt tools and its success.
+Se espera que Qt 6 crezca más en el mercado de dispositivos integrados y conectados, desde dispositivos de rendimiento cercano al escritorio de gama alta hasta dispositivos de gama baja como microcontroladores. tienen una funcionalidad relativamente simple pero requieren una interfaz de usuario pulida y fluida.
 
-It is expected that Qt 6 will grow most in the embedded and connected devices market from high-end near desktop performing devices to low-end devices like microcontrollers. Touch screens will come to an exponential increasing number to these devices. Many of these devices will have relatively simple functionality but require a polished and smooth user interface.
+En el otro extremo del espectro, existe una demanda de interfaces de usuario integradas 2D/3D más complejas.Este contenido 3D con interfaces basadas en elementos 2D será común, al igual que el uso de realidad aumentada y virtual.
 
-At the other end of the spectrum there is a demand for more complex and 2D/3D integrated user interfaces. These 3D content with 2D elements based interfaces will be common, as will be the usage of augmented and virtual reality.
+El crecimiento de los dispositivos conectados y la mayor demanda de interfaces de usuario fluidas requieren un flujo de trabajo más simple para crear aplicaciones y dispositivos. Integrar a los diseñadores de UX en el flujo de trabajo de desarrollo es uno de los objetivos de la serie Qt 6.
 
-The growth of connected devices and the higher demand for smooth user interfaces require a simpler workflow to create applications and devices. Integrating UX designers into the development workflow and is one of the goals of the Qt 6 series.
+## Qt 6 nos trae:
 
-## Qt 6 does bring us:
-
-* Next generation QML
-* Next generation graphics
-* Unified and consistent tooling
-* Enhanced Qts C++ APIs
-* Component Marketplace
+* La próxima generación de generación
+* Gráficos de próxima generación
+* Herramientas unificadas y consistentes
+* API mejoradas de Qts C++
+* Mercado de componentes
+* Gráficos de próxima generación
+* Herramientas unificadas y consistentes
+* API mejoradas de Qts C++
+* Mercado de componentes

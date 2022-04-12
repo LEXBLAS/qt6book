@@ -2,37 +2,37 @@
 
 *Copyright(C) 2012-2021 Johan Thelin and Jürgen Bocklage-Ryannel*
 
-The new home for the Qt6 book (based on QmlBook)
+El nuevo hogar para el libro Qt6 (basado en QmlBook)
 
-You can always find the latest released version of the book built at [https://www.qt.io/product/qt6/qml-book](https://www.qt.io/product/qt6/qml-book), and the latest snapshot at [https://distracted-dijkstra-f5d508.netlify.app/](https://distracted-dijkstra-f5d508.netlify.app/).
+Siempre puede encontrar la última versión publicada del libro creado en [https://www.qt.io/product/qt6/qml-book](https://www.qt.io/product/qt6/qml-book), y la última instantánea en [https://distracted-dijkstra-f5d508.netlify.app/](https://distracted-dijkstra-f5d508.netlify.app/).
 
 # Contents
 
-1. Building the Book Locally
-2. Building for Release
-3. For Reviewers
-4. For Authors
+1. Construyendo el Libro Localmente
+2. Edificio para lanzamiento
+3. Para revisores
+4. Para autores
 
-# 1. Building the Book Locally
+# 1. Construyendo el libro localmente
 
-The contents is built into a static site using [VuePress](https://vuepress.vuejs.org/). The packages are managed ysing [Yarn](https://yarnpkg.com/).
+El contenido se construye en un sitio estático usando [VuePress](https://vuepress.vuejs.org/). Los paquetes se gestionan ysing [Yarn](https://yarnpkg.com/).
 
-To build the contents locally, run:
+Para construir los contenidos localmente, ejecute:
 
 ```
 $ yarnpkg
 $ yarnpkg run docs:dev
 ```
 
-Then visit [localhost:8080](http://localhost:8080) to view the book.
+Entonces visita [localhost:8080](http://localhost:8080) para ver el libro.
 
-To build the examples, run:
+Para construir los ejemplos, ejecute:
 
 ```
 $ yarnpkg run examples:build
 ```
 
-This will create the `_examples/` directory with the build. It assumes Qt6 can be found by CMake. My typical command line on a Debian Linux machine looks like this:
+Esto creará el directorio `_examples/` con el archivo build. Se asume que CMake puede encontrar Qt6. Mi línea de comando típica en una máquina Debian Linux se ve así:
 
 ```
 $ CMAKE_PREFIX_PATH=/path/to/Qt/6.2.0/gcc_64/lib/cmake/ yarnpkg run examples:build
@@ -40,25 +40,25 @@ $ CMAKE_PREFIX_PATH=/path/to/Qt/6.2.0/gcc_64/lib/cmake/ yarnpkg run examples:bui
 
 Subsequent calls do not need `CMAKE_PREFIX_PATH` to be specified.
 
-# 2. Building for Release
+# 2. Compilación para lanzamiento(Release)
 
-To build for release, first build the docs, then package the examples into a tar-ball:
+Para compilar para el lanzamiento, primero cree los documentos, luego empaquete los ejemplos en una bola de alquitrán:
 
 ```
 $ yarnpkg run docs:build
 $ yarnpkg run examples:package
 ```
 
-This creates `examples.tar.gz` in your package root, as well as where VuePress places the output, i.e. `docs/.vuepress/dist/`.
+Esto crea `examples.tar.gz` en la raíz de su paquete, así como también donde VuePress coloca la salida, es decir, `docs/.vuepress/dist/`.
 
-Notice that the `examples:package` command assumes that the VuePress `dist/` directory exists.
+Tenga en cuenta que el comando `examples:package` asume que existe el directorio `dist/` de VuePress.
 
-# 3. For Reviewers
+# 3. Para los revisores
 
-Pick chapters to review from the [Project Board](https://github.com/qmlbook/qt6book/projects/1). Also look for issues tagged as [Questions](https://github.com/qmlbook/qt6book/issues?q=is%3Aissue+is%3Aopen+label%3Aquestion) in the project.
+Elija capítulos para revisar de la [Project Board](https://github.com/qmlbook/qt6book/projects/1). Busque también problemas etiquetados como [Questions](https://github.com/qmlbook/qt6book/issues?q=is%3Aissue+is%3Aopen+label%3Aquestion) in el projecto.
 
-Reviews are welcome both as issues, or as pull requests. Pick the approach that is the easiest for you!
+Las revisiones son bienvenidas como problemas o como solicitudes de extracción. ¡Elige el enfoque que sea más fácil para ti!.
 
-# 4. For Authors
+# 4. Para los autores
 
-Chapters are outlined in `docs/.vuepress/config.js`. Please tag chapters as `Qt5`, `Qt6 Draft`, and `Qt 6` respectively.
+Los capítulos se describen en `docs/.vuepress/config.js`. Etiquete los capítulos como `Qt5`, `Qt6 Draft` y `Qt 6` respectivamente.
